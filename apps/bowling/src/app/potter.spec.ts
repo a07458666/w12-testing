@@ -13,6 +13,12 @@ describe('Potter', () => {
   });
 
   test('buy zero book', () => {
+    potter.buy(0, 0);
     expect(potter.price).toBe(0);
+  });
+
+  test('buy one book', () => {
+    potter.buy(0, 1);
+    expect(potter.price).toBe(8);
   });
 });
