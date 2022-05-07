@@ -9,34 +9,31 @@ export class Potter {
     }
 
     combine(books: number[]){
-        books.sort().reverse();
         const sum = books.reduce((partialSum, a) => partialSum + a, 0);
-        if (sum == 0)
-        {
-            return 0;
-        }
-        var best_price = 99999;
+        var bestPrice = 99999;
+        if (sum == 0) return 0;
+        books.sort().reverse();
+        
         for (var i = 0; i < this.bookSize; ++i)
         {
-            var set_price = 0;
-            var other_price = 0;
+            var setPrice = 0;
+            var otherPrice = 0;
             if (books[i] > 0)
             {
                 books[i]--;
-                set_price = ((i + 1) * this.bookPrice) * this.discount[i];
-                other_price = this.combine(Array.from(books));
-                best_price = Math.min(other_price + set_price, best_price);
+                setPrice = ((i + 1) * this.bookPrice) * this.discount[i];
+                otherPrice = this.combine(Array.from(books));
+                bestPrice = Math.min(otherPrice + setPrice, bestPrice);
             }
             else{
                 break;
             }
         }
-        return best_price;
+        return bestPrice;
     }
 
     get price() {
         let price = 0;
-        this.bookBuyCount.sort().reverse();
         price = this.combine(Array.from(this.bookBuyCount));
         return price;
     }
