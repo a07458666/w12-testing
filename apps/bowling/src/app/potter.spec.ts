@@ -32,4 +32,28 @@ describe('Potter', () => {
     potter.buy(1, 1);
     expect(potter.price).toBe(16 * 0.95);
   });
+
+  test('buy three different books', () => {
+    potter.buy(0, 1);
+    potter.buy(1, 1);
+    potter.buy(2, 1);
+    expect(potter.price).toBe(8 * 3 * 0.90);
+  });
+
+  test('buy four different books', () => {
+    potter.buy(0, 1);
+    potter.buy(1, 1);
+    potter.buy(2, 1);
+    potter.buy(3, 1);
+    expect(potter.price).toBe(8 * 4 * 0.80);
+  });
+
+  test('buy five different books', () => {
+    potter.buy(0, 1);
+    potter.buy(1, 1);
+    potter.buy(2, 1);
+    potter.buy(3, 1);
+    potter.buy(4, 1);
+    expect(potter.price).toBe(8 * 5 * 0.75);
+  });
 });

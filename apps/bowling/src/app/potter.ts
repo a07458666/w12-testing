@@ -47,7 +47,7 @@ export class Potter {
         let price = 0;
         this.bookBuyCount.sort().reverse();
         console.log(this.bookBuyCount);
-        price = this.combine(this.bookBuyCount);
+        price = this.combine(Array.from(this.bookBuyCount));
         // for (let idx = 0; idx < this.bookSize; idx++)
         // {
         //     price += (this.bookPrice * this.bookBuyCount[idx])
