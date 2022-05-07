@@ -30,7 +30,7 @@ export class Potter {
                 console.log("books be", books);
                 other_price = this.combine(Array.from(books));
                 console.log("best_price old", best_price);
-                best_price = Math.min(other_price + set_price);
+                best_price = Math.min(other_price + set_price, best_price);
                 console.log("set_price ", set_price);
                 console.log("other_price ", other_price);
                 console.log("best_price ", best_price);
